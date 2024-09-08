@@ -2,8 +2,8 @@ name: Refresh Data and Deploy to GitHub Pages
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
-  workflow_dispatch:  # Allows manual triggering
+    - cron: "0 0 * * *" # Runs daily at midnight
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   build:
@@ -15,14 +15,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v2
 
       - name: Checkout Repository
         uses: actions/checkout@v3
-
 
       - name: Install Dependencies
         run: |
@@ -35,5 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          destination_dir: calendar.html
+          publish_dir: ./index.html
+          destination_dir: ./index.html
