@@ -31,7 +31,9 @@ jobs:
         run: python src/tropennacht/generate_calendar.py
 
       - name: Move file
-        run: cp index.html docs/index.html
+        run: |
+          mkdir docs
+          cp index.html docs/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
